@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="text-center">
+    <h1>Restaurants</h1>
+  </div>
+  <div>
+    <% @restaurants.each do |restaurant| %>
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to restaurant.name, restaurant_path(restaurant) %> <%= restaurant.category.capitalize %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+
