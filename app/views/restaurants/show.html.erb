@@ -1,13 +1,23 @@
-<h1><%= @restaurant.name %></h1>
-<h3><%= @restaurant.category.capitalize %></h3>
-<h3><%= @restaurant.address %></h3>
-<p><%= @restaurant.phone_number %></p>
-<ul class="list-unstyled">
-  <% @restaurant.reviews.each do |review| %>
-    <li>
-      <p><%= review.content %><%= review.rating %></p>
-    </li>
-  <% end %>
-</ul>
-<p><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
-<p><%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %></p>
+<div class="container">
+  <div class="text-center">
+    <h1><%= @restaurant.name %></h1>
+  </div>
+
+  <h3 class="font-italic"><%= @restaurant.category.capitalize %></h3>
+  <h3><%= @restaurant.address %></h3>
+  <p><%= @restaurant.phone_number %></p>
+  <ul class="list-unstyled list-inline">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="d-flex justify-content-between">
+        <p><%= review.content %></p>
+        <p class="font-weight-bold"><%= review.rating %></p>
+      </li>
+    <% end %>
+  </ul>
+  <div class="d-flex justify-content-between">
+    <p><%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></p>
+    <p><%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %></p>
+  </div>
+
+</div>
+
